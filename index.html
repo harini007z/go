@@ -47,65 +47,7 @@
 	  <script>
 
     </div>
-<script type="text/javascript">
 
-			var galleryimage = $('.galleryimage');
-			var loader = $('.loader');
-
-			galleryimage.hide();
-
-			galleryimage.on('load', function() {
-				$(this).fadeIn();
-				$(this).siblings().fadeOut();
-			});
-
-			var mq = [22,7];
-			var a = '', g = '', c = [], o = [];
-
-			$(document).ready(function(){
-				$('.questionblocks').hide();
-				$('#question'+mq.shift()).fadeIn();
-			});
-
-			$('.answer').click(function() {
-				var v = $(this).data('target-id');
-				switch(parseInt($(this).data('target-type')))
-				{
-					case 1 : a = v;
-					break;
-					case 2 : c.push(v);
-					break;
-					case 3 : g = v;
-					break;
-					case 4 : o.push(v);
-					break;
-					case 5 : $(this).parent().parent().fadeOut(function() {
-						$('#question'+v).fadeIn();});
-						return false;
-				} 
-				if (mq.length > 0) {
-												fbq('track', 'Click1', {domain: window.location.href});
-												
-						$(this).parent().fadeOut(function() {$('#question'+mq.shift()).fadeIn();});
-						
-				}
-				else {
-						$('.questionblocks').fadeOut('slow');
-						$('body').append('<form id="lf" action="m/r.php" method="POST">');
-						$('#lf').append('<input type="hidden" name="id" value="4038">');
-						$('#lf').append('<input type="hidden" name="r" value="">');
-						$('#lf').append('<input type="hidden" name="a" value="'+a+'">');
-						$('#lf').append('<input type="hidden" name="g" value="'+g+'">');
-												for (var i in c) {
-							$('#lf').append('<input type="hidden" name="c[]" value="'+c[i]+'">');
-						}
-						for (var i in o) {
-							$('#lf').append('<input type="hidden" name="o[]" value="'+o[i]+'">');
-						}
-												fbq('track', 'Click2', {domain: window.location.href});
-												$('#lf').submit();
-					}   
-			});   
-			</script>
   </body>
 </html>
+
